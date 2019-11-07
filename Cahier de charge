@@ -1,0 +1,23 @@
+Cahier de charge: projet Java
+
+Idée du projet informatique:
+Création d’un jeu snake contenant plusieurs difficultés de jeu.
+
+Contexte du projet :
+La création d’un jeu snake afin de pouvoir l’introduire dans plusieurs ordinateurs de bureau afin que les employés puissent en profiter durant leurs pauses.
+Objectifs du projet:
+Divertir les utilisateurs qui jouent au jeu et se démarquer des autres jeux de snake qui sont nombreux au vu de l’ancienneté et de la popularité de ce jeu.
+Contraintes techniques:
+Avoir deux interfaces (graphique et console).
+Avoir une communication réseau.
+Contenir une structure de données du framework Java Collection.
+Gérer la vitesse du serpent.
+Gérer les déplacement du serpent de manière cohérente.
+Avoir un Gameplay intuitif.
+Ajouter des bonus car le jeu est trop classique.
+Développer nos connaissances en Java.
+
+Description des besoins fonctionnels:
+En tant que joueur, je recherche un jeu fonctionnel et intuitif. On souhaite faire en sorte qu’un joueur, expérimenté comme débutant, puisse effectuer une partie agréable. Le jeu aura besoin de contrôles intuitif et de mouvement cohérent. Il est aussi nécessaire d’avoir difficultée correctement gérée afin que le jeu en mode normal soit jouable par un joueur lambda. Les objectifs doivent êtres précis et facilement compréhensible afin de ne pas être perdu dans le jeu. Nous voulons peut-être ajouter des pouvoirs ( diminuer la vitesse du serpent par 2 pendant 5 secondes, agrandir le serpent de 2 cases par oeuf pendant les 2 prochain oeuf.)
+
+Auteurs du projet: Bouquoyoue Bilel, Derreumaux Valentin, Tang Jean-Michaël
