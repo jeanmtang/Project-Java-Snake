@@ -9,13 +9,14 @@ import java.awt.event.KeyListener;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Random;
+
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
  
 public class snakefini extends JPanel{
  
-    private final int WIDTH = 50;
+    private final int WIDTH = 25;
     private Deque<PartieSerpent> snake = new ArrayDeque<>();
     private Point oeuf = new Point(0,0);
     private Random rand = new Random();
@@ -53,7 +54,7 @@ public class snakefini extends JPanel{
             }
         });
         frame.setContentPane(panel);
-        frame.setSize(15*50, 15*50); 
+        frame.setSize(20*25, 20*25); 
         frame.setResizable(false);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -63,7 +64,7 @@ public class snakefini extends JPanel{
     public snakefini() {
         creerOeuf();
         snake.add(new PartieSerpent(0, 0, 39));
-        setBackground(Color.WHITE);
+        setBackground(Color.DARK_GRAY);
         new Thread(new Runnable() {
            
             @Override
@@ -78,7 +79,8 @@ public class snakefini extends JPanel{
                     }
                 }
             }
-        }).start();
+        })
+        .start();
     }
    
     public void creerOeuf() {
@@ -102,8 +104,8 @@ public class snakefini extends JPanel{
        
         if(gameLost) {
             objet.setColor(Color.RED);
-            objet.setFont(new Font("Arial", 90, 90));
-            objet.drawString("Partie terminée", 13*50/2 - objet.getFontMetrics().stringWidth("Partie terminée")/2, 13*50/2);
+            objet.setFont(new Font("Arial", 55, 55));
+            objet.drawString("GAME OVER", 21*25/2 - objet.getFontMetrics().stringWidth("Partie terminée")/2, 19*25/2);
             return;
         }
        
@@ -130,7 +132,7 @@ public class snakefini extends JPanel{
             }
         }
        
-        objet.setColor(Color.LIGHT_GRAY);
+        objet.setColor(Color.YELLOW);
         objet.fillOval(oeuf.x*WIDTH + WIDTH/4, oeuf.y*WIDTH + WIDTH/4, WIDTH/2, WIDTH/2);
        
         objet.setColor(Color.RED);
@@ -158,6 +160,13 @@ public class snakefini extends JPanel{
         if(keyCode >= 37 && keyCode <= 40) {
             if(Math.abs(keyCode - newDirection) != 2) {
                 newDirection = keyCode;
+                
+                try{
+                	Thread.sleep(50);
+                }
+                catch(Exception e) {
+                	System.out.println(e);
+                }
             }
         }
     }
@@ -173,18 +182,19 @@ public class snakefini extends JPanel{
         }
        
         public void move() {
+        	// Bouton avec condition de boolean (exemple : muractif) 
             if(direction == 37 || direction == 39) {
                 x += (direction == 37) ? -1 : 1;
-                if(x > 14)
-                    x = -1;
-                else if(x < -1)
-                    x = 14;
+                if(x > 18)
+                    gameLost = true;
+                else if(x < 0)
+                	gameLost = true;
             }else {
                 y += (direction == 38) ? -1 : 1;
-                if(y > 14)
-                    y = -1;
-                else if(y < -1)
-                    y = 14;
+                if(y > 18)
+                	gameLost = true;
+                else if(y < 0)
+                	gameLost = true;
             }
         }
        
